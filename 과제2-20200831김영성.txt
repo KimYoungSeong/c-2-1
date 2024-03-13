@@ -100,3 +100,18 @@ void main() {
 
 	printf("5000원%d개 1000원 %d개 500원 %d개 100원 %d개",r1,r2,r3,r4);
 }
+#include <stdio.h>
+
+#define POUND 0.453592
+
+int main()
+{
+	double wei;
+
+	printf("무게(㎏)를 입력하세요 : ");
+	scanf_s("%lf", &wei);
+
+	printf("%.3lf파운드\n", wei / POUND);
+
+	return 0;
+}
