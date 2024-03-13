@@ -1,0 +1,102 @@
+#include <stdio.h>
+#define VOLUME(x,y) (3.14*(x)*(x)*(y))
+
+void main() {
+	double r, h, bupi;
+
+	printf("반지름과 높이를 입력하세요\n");
+	scanf_s("%lf,%lf",&r,&h);
+
+	bupi = VOLUME(r, h);
+	printf("부피 : %.2lf", bupi);
+}
+#include <stdio.h>
+
+void main() {
+	char c1, c2;
+
+	printf("문자 2개를 입력하세요\n");
+	scanf_s("%c %c", &c1,1, &c2,1);
+	printf("%c %c", c1 + 1, c2 + 1);
+}
+#include <stdio.h>
+
+void main() {
+	double x, y;
+	printf("실수 2개를 입력하세요\n");
+	scanf_s("%lf,%lf", &x, &y);
+
+	int z = (int)x * (int)y;
+
+	printf("%d", z);
+}
+#include <stdio.h>
+
+void main() {
+	int a, b, c,result;
+	printf("정수 3개를 입력하세요");
+	scanf_s("%d %d %d", &a, &b, &c);
+
+	result = (a > b) ? a : b;
+		result = (result > c) ? result : c;
+	printf("%d", result);
+}
+#include <stdio.h>
+
+void main() {
+	double k, h, result;
+
+	printf("몸무게와 키를 입력하세요.");
+	scanf_s("%lf %lf", &k, &h);
+
+	h = h / 100;
+	result = k / (h * h);
+	printf("%.1lf", result);
+}
+#include <stdio.h>
+
+void main() {
+	int mon, h1, h2, result1, result2;
+
+	printf("음식값을 입력하세요.");
+	scanf_s("%d", &mon);
+
+	result1 = mon / 3000;
+	result2 = mon % 3000;
+
+	h1 = result1*1000;
+	h2 = result1*1000+result2;
+
+	printf("세사람이 내야 되는 몫은 %d원 %d원 %d원 입니다", h1, h1, h2);
+}
+#include <stdio.h>
+
+void main() {
+	char ch;
+
+	printf("문자를 입력하세요");
+	scanf_s("%c", &ch,1);
+
+	printf("%d", (ch >> 1) & 1);
+	printf("%d", (ch >> 2) & 1);
+	printf("%d", (ch >> 3) & 1);
+	printf("%d", (ch >> 4) & 1);
+	printf("%d", (ch >> 5) & 1);
+	printf("%d", (ch >> 6) & 1);
+	printf("%d", (ch >> 7) & 1);
+	printf("%d", (ch >> 8) & 1);
+}
+#include <stdio.h>
+
+void main() {
+	int won,r1,r2,r3,r4;
+	printf("돈을 입력하세요");
+	scanf_s("%d", &won);
+
+	r1 = won / 5000;
+	r2 = (won - r1*5000) / 1000;
+	r3 = (won - (r2*1000 + r1*5000)) / 500;
+	r4 = (won - (r3*500 + r2*1000 + r1*5000)) / 100;
+
+	printf("5000원%d개 1000원 %d개 500원 %d개 100원 %d개",r1,r2,r3,r4);
+}
