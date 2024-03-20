@@ -1,0 +1,278 @@
+#include <stdio.h>
+
+void main() {
+	char ch;
+
+	printf("문자를 입력하세요");
+	scanf_s("%c", &ch, 1);
+
+	if (ch>='A'&&ch<='Z')
+	{
+		ch = ch + 32;
+		printf("%c", ch);
+	}
+	else if (ch>='a'&&ch<='z')
+	{
+		ch = ch - 32;
+		printf("%c", ch);
+	}
+	else
+	{
+		printf("바꿀수 없는 문자입니다.");
+	}
+}
+
+#include <stdio.h>
+
+void main() {
+	int a, b, c, res;
+
+	printf("세변을 입력하세요");
+	scanf_s("%d %d %d",&a,&b,&c );
+
+	if (a >= b + c || b >= a + c || c >= a + b) {
+		printf("삼각형을 만들 수 없습니다.");
+	}
+	else
+	{
+		res = a + b + c;
+		printf("%d", res);
+	}
+}
+
+#include <stdio.h>
+
+void main() {
+	int y;
+
+	printf("연도를 입력하세요");
+	scanf_s("%d", &y);
+
+	if (y % 400 == 0) {
+		printf("윤년입니다.");
+	}
+	else if (y % 4 == 0 || y % 100 == 0) {
+		printf("윤년이 아닙니다.");
+	}
+	else
+	{
+		printf("윤년입니다.");
+	}
+}
+
+#include <stdio.h>
+
+void main() {
+	int a, b, c;
+	double res;
+
+	printf("세개의 정수를 입력하세요");
+	scanf_s("%d %d %d", &a, &b, &c);
+
+	if (a > b && a > c) {
+		if (b>c)
+		{
+			res = (double)a / (double)c;
+			printf("%.2lf", res);
+		}
+		else
+		{
+			res = (double)a / (double)b;
+			printf("%.2lf", res);
+		}
+	}
+	else if (b > a && b > c) {
+		if (a > c)
+		{
+			res = (double)b / (double)c;
+			printf("%.2lf", res);
+		}
+		else
+		{
+			res = (double)b / (double)a;
+			printf("%.2lf", res);
+		}
+	}
+	else
+	{
+		if (a > b)
+		{
+			res = (double)c / (double)b;
+			printf("%.2lf", res);
+		}
+		else
+		{
+			res = (double)c / (double)a;
+			printf("%.2lf", res);
+		}
+	}
+}
+
+#include <stdio.h>
+
+void main() {
+	double k, h, result;
+
+	printf("몸무게와 키를 입력하세요.");
+	scanf_s("%lf %lf", &k, &h);
+
+	h = h / 100;
+	result = k / (h * h);
+	printf("%.1lf\n", result);
+
+	if (result < 18)
+	{
+		printf("저체중 입니다.");
+	}
+	else if (result >= 18 && result <= 25) {
+		printf("정상입니다.");
+	}
+	else
+	{
+		printf("과체중 입니다.");
+	}
+}
+
+#include <stdio.h>
+
+void main() {
+	int s, a;
+	int mon = 1400;
+	printf("지하철 이용거리를 입력하세요");
+	scanf_s("%d", &s);
+
+	if (s <= 10) {
+		printf("%d원 입니다.",mon);
+	}
+	else if (s > 10 && s <= 50) {
+		a = (s - 10) / 5;
+		if (s % 5) {
+			a = a + 1;
+		}
+				mon = mon + a * 100;
+		printf("%d원 입니다.", mon);
+	}
+	else
+	{
+		mon = 2200;
+		a = (s - 50) / 8;
+		if (s % 8) {
+			a = a + 1;
+		}
+		mon = mon + a * 100;
+		printf("%d원 입니다.", mon);
+	}
+
+}
+
+#include <stdio.h>
+
+void main() {
+	double mon, res;
+
+	printf("상속액을 입력하세요");
+	scanf_s("%lf", &mon);
+	
+	res = mon;
+
+	if (mon <= 100000000) {
+		mon = mon - mon * 0.1;
+		res = res - mon;
+		printf("%lf", res);
+	}
+	else if (mon >= 100000000 && mon <= 500000000) {
+		mon = mon - 100000000;
+		mon = (mon - mon * 0.2) + 90000000;
+		res = res - mon;
+		printf("%lf", res);
+	}
+	else if (mon >= 500000000 && mon <= 1000000000) {
+		mon = mon - 500000000;
+		mon = (mon - mon * 0.3) + 170000000;
+		res = res - mon;
+		printf("%lf", res);
+	}
+	else if (mon >= 1000000000 && mon <= 3000000000) {
+		mon = mon - 1000000000;
+		mon = (mon - mon * 0.4) + 320000000;
+		res = res - mon;
+		printf("%lf", res);
+	}
+	else if (mon >= 3000000000) {
+		mon = mon - 300000000;
+		mon = (mon - mon * 0.5) + 1120000000;
+		res = res - mon;
+		printf("%lf", res);
+	}
+}
+
+#include <stdio.h>
+
+void main() {
+	int mon, h1, h2,h3, result1, result2;
+
+	printf("음식값을 입력하세요.");
+	scanf_s("%d", &mon);
+
+	result1 = mon / 3000;
+	result2 = mon % 3000;
+	if (result2>=1000)
+	{
+		result2 = result2 - 1000;
+
+	}
+	h1 = result1*1000;
+	h2 = result1*1000+result2;
+	h3 = result1 * 1000 + 1000;
+
+	printf("세사람이 내야 되는 몫은 %d원 %d원 %d원 입니다", h1, h2, h3);
+}
+
+#include <stdio.h>
+
+void main() {
+	char c;
+	double tal, k1, k2, b = 0;
+
+	printf("성별, 신장(m), 몸무게(kg)를 입력하세요.(m,w)");
+	scanf_s("%c %lf %lf", &c,1,&tal,&k1);
+
+	if (c == 'm') {
+		k2 = tal * tal *22;
+		b = k1 / k2 * 100;
+		if (b < 90) {
+			printf("비만지수 %lf 저체중입니다.",b);
+		}
+		else if (b >= 90 && b < 110) {
+			printf("비만지수 %lf 정상 입니다.",b);
+		}
+		else if (b >= 110 && b < 120) {
+			printf("비만지수 %lf 체중과다 입니다.", b);
+		}
+		else
+		{
+			printf("비만지수 %lf 비만 입니다.", b);
+		}
+	}
+	else if (c == 'w') {
+		k2 = tal * tal * 21;
+		b = k1 / k2 * 100;
+		if (b < 90) {
+			printf("비만지수 %lf 저체중입니다.", b);
+		}
+		else if (b >= 90 && b < 110) {
+			printf("비만지수 %lf 정상 입니다.", b);
+		}
+		else if (b >= 110 && b < 120) {
+			printf("비만지수 %lf 체중과다 입니다.", b);
+		}
+		else
+		{
+			printf("비만지수 %lf 비만 입니다.", b);
+		}
+	}
+	else
+	{
+		("잘못입력하셨습니다.");
+	}
+}
