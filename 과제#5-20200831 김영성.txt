@@ -158,11 +158,11 @@ void main() {
 		}
 
 	}
-	for (i = 0; i < 4; i++)
+	for (i = 0; i < 3; i++)
 	{
 		int hap = 0;
-		for (j = 0; j < 3; j++) {
-			hap = hap + num[i][j];
+		for (j = 0; j < 4; j++) {
+			hap = hap + num[j][i];
 		}
 		printf("%d열합 %d\n", i + 1, hap);
 	}
