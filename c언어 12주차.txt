@@ -1,0 +1,104 @@
+#include <stdio.h>
+
+struct info {
+	char name[12];
+	int age;
+	char blood[4];
+};
+void main() {
+	struct info me;
+
+	printf("이름 나이 혈액형 입력\n");
+	scanf_s("%s %d %s", me.name, 12, &me.age, me.blood,4);
+	struct info *p = &me;
+	printf("이름: %s 나이:%d 혈액형:%s\n",p->name,p->age,p->blood);
+}
+
+#include <stdio.h>
+
+struct info {
+	char name[12];
+	char sub1[20];
+	double point1;
+	char sub2[20];
+	double point2;
+	char sub3[20];
+	double point3;
+};
+typedef struct info info;
+
+double avgfunc(info *p){
+	return (p->point1 + p->point2 + p->point3) / 3;
+}
+
+void main() {
+	info stu = { "홍길동","C",4.5,"Java",3.5,"python",3.0 };
+	double avg;
+
+	avg = avgfunc(&stu);
+	printf("평점평균:%.2lf", avg);
+}
+
+#include <stdio.h>
+#include <math.h>
+struct info {
+	double a;
+	double b;
+	double c;
+};
+typedef struct info info;
+
+double trifunc(info *p){
+	double s = (p->a + p->b + p->c) / 2;
+	double area = sqrt(s * (s - p->a) * (s - p->b) * (s - p->c));
+
+	return area;
+}
+
+void main() {
+	info tri = { 5,8,10 };
+	double res;
+
+	res = trifunc(&tri);
+
+	printf("면적:%.2lf", res);
+}
+
+#include <stdio.h>
+#include <math.h>
+union nomember
+{
+	char nickname[20];
+	int number;
+};
+
+struct membership
+{
+	char name[12];
+	int check;
+
+	union nomember id;
+};
+
+void main() {
+	struct membership mem[2];
+
+	printf("회원의 이름과 회원번호를 입력하세요");
+	scanf_s("%s %d", mem[0].name,12,&mem[0].id.number,mem[0].check=1);
+
+	printf("비회원의 이름과 닉네임을 입력하세요");
+	scanf_s("%s %s", mem[1].name,12, mem[1].id.nickname,20);
+
+	for (int i = 0; i < 2; i++) {
+		printf("%s ",mem[i].name,12);
+		if (mem[i].check == 1) {
+			printf("회원 %d", mem[i].id.number);
+		}
+		else
+		{
+			printf("비회원 %s", mem[i].id.nickname,20);
+		}
+	}
+
+}
+
