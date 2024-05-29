@@ -1,0 +1,77 @@
+#include <stdio.h>
+void dbla(int p[], int sz);
+void main() {
+	int aa[] = { 1,2,3,4,5 };
+
+	dbla(aa, 5);
+	for (int i = 0; i < 5; i++) {
+		printf("%d ", aa[i]);
+	}
+}
+
+void dbla(int p[],int sz) {
+	for (int i = 0; i < sz; i++) {
+		p[i] *= 2; //*(p+i) *= 2; //*p++ *= 2; 다똑같다.
+	}
+}
+
+#include <stdio.h>
+void revPrint(int p[], int sz);
+void main() {
+	int aa[] = { 1,2,3,4,5 };
+
+	revPrint(aa, 5);
+}
+
+void revPrint(int p[], int sz){
+	for (int i = sz - 1; i >= 0; i--) {
+		printf("%d", p[i]);
+	}
+}
+
+#include <stdio.h>
+void cutStr(char* origin, int start, int cnt, char* result);
+void main() {
+	char str[] = "qwertyuiopsdfghjklzxcvbnm";
+	char str2[100];
+
+	cutStr(str,4,10,str2);
+	puts(str2);
+}
+
+void cutStr(char* origin, int start, int cnt, char* result)
+{
+	int copycnt = 0;
+	origin += start;
+	while (*origin) {
+		*result++ = *origin++;
+		copycnt++;
+		if (copycnt >= cnt) break;
+	}
+	*result = '\0';
+}
+
+#include <stdio.h>
+void foo(char* origin, char* hol, char* jak);
+void main() {
+	char str[] = {"a,b,c,d,e,f"};
+	char aa[100] = {};
+	char bb[100] = {};
+	void foo(char str, char *aa, char *bb);
+
+	puts(aa);
+	puts(bb);
+}
+
+void foo(char *origin, char* hol, char* jak) {
+	int cnt = 0;
+	int i = 0;
+	for (i = 0; i <= *origin; i+2) {
+		if (i % 2 == 1) {
+			*origin = *hol;
+		}
+		if (i % 2 == 0) {
+			*origin = *jak;
+		}
+	}
+}
